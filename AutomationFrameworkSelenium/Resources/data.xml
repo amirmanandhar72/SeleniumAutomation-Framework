@@ -1,0 +1,6 @@
+﻿<configuration>
+	<appSettings>
+		<add key="URL" value="value1" />
+		<add key="Variable2" value="value2" />
+	</appSettings>
+</configuration>
