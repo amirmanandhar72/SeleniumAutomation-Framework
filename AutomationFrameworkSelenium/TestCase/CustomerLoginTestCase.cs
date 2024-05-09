@@ -1,9 +1,5 @@
 ﻿using AutomationFrameworkSelenium.PageService;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using NUnit.Framework;
 
 namespace AutomationFrameworkSelenium.TestCase
 {
@@ -15,9 +11,9 @@ namespace AutomationFrameworkSelenium.TestCase
         {
             var login = new LoginPageService(driver);
             var customerLogin= login.ClickOnCustomerLogin();
-            customerLogin.WaitForPageToLoad();
+            customerLogin.common.WaitForPageToLoad();
 
-            customerLogin.ShouldBeEqual("Your Name :", customerLogin.GetTitle());
+            customerLogin.common.ShouldBeEqual("Your Name :", customerLogin.GetTitle());
             customerLogin.selectOption("Harry ");
             
         }
