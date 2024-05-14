@@ -36,5 +36,37 @@ namespace AutomationFrameworkSelenium.Base
 
             }
         }
+
+
+        public bool IsSubmitButtonHidden()
+        {
+            try
+            {
+                var submitButton = driver.FindElement(By.XPath("//button[@type='submit']"));
+                return submitButton.GetAttribute("class").Contains("ng-hide");
+            }
+            catch (NoSuchElementException)
+            {
+                // If the button is not found, it might be hidden or not present at all
+                return true;
+            }
+        }
+        public void ShouldBeTrue(bool condition, string message = "Condition should be true but was false")
+        {
+            // Assertion logic
+            Assert.IsTrue(condition, message);
+            TestContext.WriteLine("Condition should be true:"+ condition);
+
+
+        }
+
+        public void ShouldBeFalse(bool condition, string message = "Condition should be false but was true")
+        {
+            // Assertion logic
+            Assert.IsFalse(condition, message);
+
+            TestContext.WriteLine("Condition should be False:"+ condition);
+
+        }
     }
 }
